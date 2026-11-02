@@ -83,3 +83,17 @@ Supervisor · Smart Menu & Nutrition · Intelligent Order · Kitchen Coordinatio
 - Tracking updates by polling (5-6 s), not websockets. Cancel-by-numeric-id on the legacy API is still public.
 - I could not open a real browser; pages were verified in a headless DOM (jsdom). Please click through them.
 # TasteFlow-AI
+
+
+### 4. Open the Pages
+
+Once the frontend server is running, open the following pages in your browser:
+
+| **Page** | **Address** | **Sign-in Required** |
+|---|---|---|
+| **Menu & Cart** | [http://127.0.0.1:5500/index.html](http://127.0.0.1:5500/index.html) | None |
+| **Agent Console** | [http://127.0.0.1:5500/agents.html](http://127.0.0.1:5500/agents.html) | None (Click **Staff Sign-in** to access owner insights) |
+| **Kitchen Dashboard** | [http://127.0.0.1:5500/kitchen.html](http://127.0.0.1:5500/kitchen.html) | Kitchen PIN |
+| **Owner Dashboard** | [http://127.0.0.1:5500/owner.html](http://127.0.0.1:5500/owner.html) | Owner PIN |
+
+**Note:** Make sure your backend API and frontend development server are running before accessing these pages.
