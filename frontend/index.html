@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173f35">
+  <meta name="description" content="Discover delicious food and personalized recommendations at TasteFlow Bistro.">
+  <title>TasteFlow Bistro | Food, Your Way</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/config.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/menu.js" defer></script>
+</head>
+
+<body>
+
+  <div class="demo-banner">
+    DEMO EXPERIENCE <span>•</span> TasteFlow Bistro uses sample menu data
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="TasteFlow Bistro home">
+      <span class="brand-icon">T</span>
+      <span class="brand-name">tasteflow<span>.</span>
+        <small>BISTRO & KITCHEN</small>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="nav-link active" href="#menu">Explore Menu</a>
+      <a class="nav-link" href="#story">Our Philosophy</a>
+      <a class="nav-link" href="assistant.html">AI Assistant</a>
+      <a class="nav-link" href="voice.html">Order by Voice</a>
+      <a class="nav-link" href="track.html">Track Order</a>
+    </nav>
+
+    <button class="cart-button" id="open-cart" type="button">
+      <span aria-hidden="true">♧</span>
+      My Cart <span class="cart-count" id="cart-count">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow"><span class="status-dot"></span> GOOD FOOD. SMARTER CHOICES.</span>
+
+        <h1>Made for your<br>kind of <span>craving.</span></h1>
+
+        <p class="hero-description">
+          Discover dishes you'll love, find your perfect meal,
+          and let a little intelligence make dining even better.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#menu">
+            Explore the menu <span>↗</span>
+          </a>
+          <a class="button button-secondary" href="#ai-assistant">
+            <span>✳</span> Meet your food assistant
+          </a>
+        </div>
+
+        <div class="hero-note">
+          <span class="avatar-stack" aria-hidden="true">
+            <span>🍃</span><span>🍅</span><span>🌶️</span>
+          </span>
+          <span>Thoughtful ingredients. Personal choices.</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1000&q=85"
+          alt="Fresh, colorful meal with vegetables and greens">
+        <div class="floating-card">
+          <span class="floating-icon">✳</span>
+          <div>
+            <strong>Your taste, understood.</strong>
+            <small>Discover your next favourite.</small>
+          </div>
+        </div>
+        <div class="image-caption">FRESH THINKING. FRESH FOOD.</div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">A LITTLE SOMETHING FOR EVERYONE</span>
+          <h2>Find your <span>favourite.</span></h2>
+          <p>Explore our demo menu and discover something delicious.</p>
+        </div>
+        <div class="menu-status">
+          <span class="status-dot"></span> Sample menu available
+        </div>
+      </div>
+
+      <div class="menu-toolbar">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input type="search" id="menu-search" placeholder="Search dishes or ingredients..."
+            aria-label="Search dishes or ingredients">
+          <kbd>⌘ K</kbd>
+        </label>
+
+        <label class="filter-select">
+          <span>Diet</span>
+          <select id="diet-filter" aria-label="Filter by diet">
+            <option value="all">All dishes</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="vegan">Vegan</option>
+            <option value="non-vegetarian">Non-vegetarian</option>
+          </select>
+        </label>
+
+        <label class="filter-select">
+          <span>Price</span>
+          <select id="price-filter" aria-label="Filter by price">
+            <option value="all">Any budget</option>
+            <option value="200">Under ₹200</option>
+            <option value="300">Under ₹300</option>
+            <option value="500">Under ₹500</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="category-list" id="category-list" aria-label="Menu categories">
+        <button class="category-chip active" data-category="All" type="button">Everything</button>
+        <button class="category-chip" data-category="Starters" type="button">Starters</button>
+        <button class="category-chip" data-category="Main Course" type="button">Main course</button>
+        <button class="category-chip" data-category="Bowls" type="button">Bowls</button>
+        <button class="category-chip" data-category="Drinks" type="button">Drinks</button>
+        <button class="category-chip" data-category="Desserts" type="button">Desserts</button>
+      </div>
+
+      <div class="results-line">
+        <span id="results-count" aria-live="polite">Loading dishes...</span>
+        <span class="sample-label">PRICES AND AVAILABILITY ARE FOR DEMO ONLY</span>
+      </div>
+
+      <div class="menu-grid" id="menu-grid">
+        <div class="loading-state">Preparing something delicious...</div>
+      </div>
+    </section>
+
+    <section class="story-section" id="story">
+      <div class="story-mark">✳</div>
+      <div>
+        <span class="eyebrow">MORE THAN JUST A MENU</span>
+        <h2>Good food is personal.<br><span>Your experience should be too.</span></h2>
+        <p>
+          TasteFlow brings thoughtful food discovery and smarter restaurant
+          experiences together. This prototype is the first step toward
+          connecting customers, kitchens, and restaurant insights.
+        </p>
+      </div>
+    </section>
+
+
+    <section class="assistant-preview" id="ai-assistant">
+      <div class="assistant-symbol">✳</div>
+      <div class="assistant-copy">
+        <span class="eyebrow">YOUR TASTEFLOW HOST</span>
+        <h2>Tell us what you feel like. We’ll handle the rest.</h2>
+        <p>Chat or talk in English, हिन्दी or Hinglish. Ask for “vegetarian under ₹300, not too spicy”, build your cart, place your order and see exactly how many minutes are left.</p>
+        <div class="assistant-actions">
+          <a class="button button-primary" href="assistant.html">Chat with TasteFlow →</a>
+          <a class="button button-secondary" href="voice.html">🎤 Order by voice</a>
+          <a class="button button-secondary" href="track.html">Track my order</a>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="index.html">
+      <span class="brand-icon">T</span>
+      <span class="brand-name">tasteflow<span>.</span>
+        <small>BISTRO & KITCHEN</small>
+      </span>
+    </a>
+    <p>Thoughtfully made for the next generation of dining.</p>
+    <p class="staff-link"><a href="login.html" style="opacity:.55;font-size:.85em">Staff login</a></p>
+    <span>© 2026 TasteFlow Bistro · Student project prototype</span>
+  </footer>
+
+  <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+
+  <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title"
+    aria-hidden="true" inert>
+    <div class="drawer-header">
+      <div>
+        <span class="eyebrow">YOUR SELECTION</span>
+        <h2 id="cart-title">Your cart <span id="drawer-item-count">(0)</span></h2>
+      </div>
+      <button class="icon-button" id="close-cart" type="button" aria-label="Close cart">✕</button>
+    </div>
+
+    <div class="cart-items" id="cart-items">
+      <div class="empty-cart">
+        <span>♧</span>
+        <h3>Your cart is taking a little break.</h3>
+        <p>Add a dish from the menu to get started.</p>
+      </div>
+    </div>
+
+
+
+    <div class="cart-footer">
+      <label for="customer-name" class="customer-name-label">
+        Your name
+      </label>
+
+      <input type="text" id="customer-name" name="customer_name" placeholder="Enter your name" minlength="2"
+        maxlength="120" autocomplete="name" required>
+
+      <div class="cart-total-row">
+        <span>Subtotal</span>
+        <strong id="cart-total">₹0</strong>
+      </div>
+
+      <p class="cart-disclaimer">
+        Review your order before confirming. No payment is collected.
+      </p>
+
+      <button class="button button-primary checkout-button" id="checkout-button" type="button" disabled>
+        Place order <span>→</span>
+      </button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+
+  <a id="voice-open" class="voice-launcher" href="voice.html" aria-label="Order by voice">
+    <span class="voice-launcher-icon">✳</span>
+    <span>Talk to TasteFlow AI</span>
+  </a>
+</body>
+
+
+</body>
+
+</html>

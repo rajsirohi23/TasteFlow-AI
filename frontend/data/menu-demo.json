@@ -1,0 +1,352 @@
+
+[
+  {
+    "id": 1,
+    "name": "Garden Fresh Bowl",
+    "price": 249,
+    "category": "Bowls",
+    "dietary_tags": ["vegetarian"],
+    "ingredients": ["lettuce", "chickpeas", "cucumber", "tomato", "lemon dressing"],
+    "description": "A refreshing bowl of greens, chickpeas, crunchy vegetables and lemon dressing.",
+    "spice_level": "Mild",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 2,
+    "name": "Paneer Tikka",
+    "price": 279,
+    "category": "Starters",
+    "dietary_tags": ["vegetarian"],
+    "ingredients": ["paneer", "capsicum", "yogurt", "spices"],
+    "description": "Marinated paneer grilled with peppers and a fragrant spice blend.",
+    "spice_level": "Medium",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 3,
+    "name": "Classic Margherita Pizza",
+    "price": 299,
+    "category": "Main Course",
+    "dietary_tags": ["vegetarian"],
+    "ingredients": ["pizza dough", "tomato sauce", "mozzarella", "basil"],
+    "description": "A comforting classic with tomato, mozzarella and aromatic basil.",
+    "spice_level": "Mild",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 4,
+    "name": "Chickpea Power Bowl",
+    "price": 229,
+    "category": "Bowls",
+    "dietary_tags": ["vegan", "vegetarian"],
+    "ingredients": ["chickpeas", "brown rice", "spinach", "tomato", "lemon"],
+    "description": "A plant-based bowl with chickpeas, rice, greens and citrus dressing.",
+    "spice_level": "Mild",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 5,
+    "name": "Grilled Chicken Plate",
+    "price": 349,
+    "category": "Main Course",
+    "dietary_tags": ["non-vegetarian"],
+    "ingredients": ["chicken", "herbs", "vegetables", "olive oil"],
+    "description": "Herb-seasoned grilled chicken served with seasonal vegetables.",
+    "spice_level": "Mild",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 6,
+    "name": "Mango Smoothie",
+    "price": 149,
+    "category": "Drinks",
+    "dietary_tags": ["vegetarian"],
+    "ingredients": ["mango", "milk", "yogurt"],
+    "description": "A creamy mango smoothie made for a refreshing break.",
+    "spice_level": "Mild",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 7,
+    "name": "Chocolate Brownie",
+    "price": 129,
+    "category": "Desserts",
+    "dietary_tags": ["vegetarian"],
+    "ingredients": ["chocolate", "flour", "butter", "sugar"],
+    "description": "A rich chocolate treat for anyone saving room for dessert.",
+    "spice_level": "Mild",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 8,
+    "name": "Seasonal Vegetable Stir-Fry",
+    "price": 219,
+    "category": "Main Course",
+    "dietary_tags": ["vegan", "vegetarian"],
+    "ingredients": ["seasonal vegetables", "garlic", "soy sauce", "sesame"],
+    "description": "Crisp seasonal vegetables tossed with garlic and a savory sauce.",
+    "spice_level": "Medium",
+    "available": false,
+    "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=700&q=80"
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "id": 9,
+    "name": "Crispy Corn Tikki",
+    "price": 169,
+    "category": "Starters",
+    "dietary_tags": ["vegetarian"],
+    "ingredients": ["sweet corn", "potatoes", "bread crumbs", "spices"],
+    "description": "Golden, crispy corn and potato patties seasoned with aromatic spices.",
+    "spice_level": "Medium",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 10,
+    "name": "Hara Bhara Kebab",
+    "price": 189,
+    "category": "Starters",
+    "dietary_tags": ["vegetarian"],
+    "ingredients": ["spinach", "peas", "potatoes", "green chilies", "spices"],
+    "description": "Flavorful green vegetable patties crisped on the outside and soft inside.",
+    "spice_level": "Medium",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 11,
+    "name": "Classic French Fries",
+    "price": 129,
+    "category": "Starters",
+    "dietary_tags": ["vegan", "vegetarian"],
+    "ingredients": ["potatoes", "oil", "salt", "black pepper"],
+    "description": "Crispy golden potato fries lightly seasoned with salt and pepper.",
+    "spice_level": "Mild",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 12,
+    "name": "Tandoori Mushroom Tikka",
+    "price": 229,
+    "category": "Starters",
+    "dietary_tags": ["vegetarian"],
+    "ingredients": ["mushrooms", "yogurt", "ginger", "garlic", "tandoori spices"],
+    "description": "Juicy mushrooms marinated in a smoky tandoori mixture and grilled to perfection.",
+    "spice_level": "Medium",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 13,
+    "name": "Creamy Paneer Butter Masala",
+    "price": 299,
+    "category": "Main Course",
+    "dietary_tags": ["vegetarian"],
+    "ingredients": ["paneer", "tomatoes", "cream", "butter", "Indian spices"],
+    "description": "Soft paneer cubes simmered in a rich, creamy tomato and butter gravy.",
+    "spice_level": "Medium",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 14,
+    "name": "Vegetable Biryani",
+    "price": 249,
+    "category": "Main Course",
+    "dietary_tags": ["vegetarian"],
+    "ingredients": ["basmati rice", "carrots", "peas", "beans", "biryani spices"],
+    "description": "Fragrant basmati rice cooked with seasonal vegetables and aromatic spices.",
+    "spice_level": "Medium",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 15,
+    "name": "Dal Tadka with Rice",
+    "price": 199,
+    "category": "Main Course",
+    "dietary_tags": ["vegan", "vegetarian"],
+    "ingredients": ["yellow lentils", "rice", "tomatoes", "cumin", "garlic"],
+    "description": "Comforting yellow lentils finished with a fragrant cumin and garlic tempering, served with rice.",
+    "spice_level": "Mild",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 16,
+    "name": "Classic Veggie Burger",
+    "price": 199,
+    "category": "Main Course",
+    "dietary_tags": ["vegetarian"],
+    "ingredients": ["burger bun", "vegetable patty", "lettuce", "tomato", "cheese", "sauce"],
+    "description": "A satisfying vegetable patty burger layered with fresh vegetables and creamy sauce.",
+    "spice_level": "Mild",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1520072959219-c595dc870360?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 17,
+    "name": "Creamy White Sauce Pasta",
+    "price": 249,
+    "category": "Main Course",
+    "dietary_tags": ["vegetarian"],
+    "ingredients": ["pasta", "milk", "cream", "cheese", "garlic", "herbs"],
+    "description": "Pasta coated in a silky white sauce with garlic, herbs and melted cheese.",
+    "spice_level": "Mild",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 18,
+    "name": "Spicy Arrabbiata Pasta",
+    "price": 239,
+    "category": "Main Course",
+    "dietary_tags": ["vegan", "vegetarian"],
+    "ingredients": ["pasta", "tomatoes", "garlic", "chili flakes", "olive oil"],
+    "description": "Italian pasta tossed in a bold tomato sauce with garlic and red chili flakes.",
+    "spice_level": "Hot",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 19,
+    "name": "BBQ Chicken Burger",
+    "price": 289,
+    "category": "Main Course",
+    "dietary_tags": ["non-vegetarian"],
+    "ingredients": ["chicken patty", "burger bun", "lettuce", "tomato", "BBQ sauce"],
+    "description": "A juicy chicken burger topped with smoky barbecue sauce and crisp lettuce.",
+    "spice_level": "Medium",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 20,
+    "name": "Chicken Biryani",
+    "price": 329,
+    "category": "Main Course",
+    "dietary_tags": ["non-vegetarian"],
+    "ingredients": ["chicken", "basmati rice", "yogurt", "onions", "biryani spices"],
+    "description": "Aromatic basmati rice layered with spiced chicken and traditional biryani flavors.",
+    "spice_level": "Hot",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 21,
+    "name": "Grilled Fish with Herbs",
+    "price": 379,
+    "category": "Main Course",
+    "dietary_tags": ["non-vegetarian"],
+    "ingredients": ["fish fillet", "lemon", "garlic", "herbs", "olive oil"],
+    "description": "Tender fish grilled with lemon, garlic and herbs for a light, savory meal.",
+    "spice_level": "Mild",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 22,
+    "name": "Greek Chickpea Salad",
+    "price": 219,
+    "category": "Salads",
+    "dietary_tags": ["vegan", "vegetarian"],
+    "ingredients": ["chickpeas", "cucumber", "tomatoes", "olives", "lemon dressing"],
+    "description": "A colorful Mediterranean salad with chickpeas, crunchy vegetables and citrus dressing.",
+    "spice_level": "Mild",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 23,
+    "name": "Avocado Toast",
+    "price": 199,
+    "category": "Breakfast",
+    "dietary_tags": ["vegan", "vegetarian"],
+    "ingredients": ["whole-grain bread", "avocado", "lemon", "black pepper", "chili flakes"],
+    "description": "Toasted whole-grain bread topped with creamy avocado and a touch of lemon.",
+    "spice_level": "Mild",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 24,
+    "name": "Cold Coffee",
+    "price": 139,
+    "category": "Drinks",
+    "dietary_tags": ["vegetarian"],
+    "ingredients": ["coffee", "milk", "sugar", "ice"],
+    "description": "A chilled, creamy coffee blended with milk and ice for a refreshing drink.",
+    "spice_level": "Mild",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 25,
+    "name": "Fresh Watermelon Juice",
+    "price": 99,
+    "category": "Drinks",
+    "dietary_tags": ["vegan", "vegetarian"],
+    "ingredients": ["watermelon", "lime", "ice"],
+    "description": "Fresh watermelon blended with a splash of lime for a naturally sweet drink.",
+    "spice_level": "Mild",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9e?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 26,
+    "name": "New York Cheesecake",
+    "price": 179,
+    "category": "Desserts",
+    "dietary_tags": ["vegetarian"],
+    "ingredients": ["cream cheese", "cream", "sugar", "eggs", "biscuit base"],
+    "description": "A smooth and creamy cheesecake with a buttery biscuit crust.",
+    "spice_level": "Mild",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 27,
+    "name": "Chocolate Lava Cake",
+    "price": 159,
+    "category": "Desserts",
+    "dietary_tags": ["vegetarian"],
+    "ingredients": ["chocolate", "flour", "butter", "sugar", "eggs"],
+    "description": "A warm chocolate cake with a rich, gooey chocolate center.",
+    "spice_level": "Mild",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": 28,
+    "name": "Strawberry Banana Smoothie",
+    "price": 159,
+    "category": "Drinks",
+    "dietary_tags": ["vegetarian"],
+    "ingredients": ["strawberries", "banana", "milk", "yogurt"],
+    "description": "A fruity smoothie combining ripe banana and strawberries with creamy yogurt.",
+    "spice_level": "Mild",
+    "available": true,
+    "image": "https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=700&q=80"
+  }
+]

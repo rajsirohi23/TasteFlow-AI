@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu Manager · TasteFlow</title>
+  <link rel="stylesheet" href="css/command.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/session.js"></script>
+  <script>TasteFlowSession.guard(["owner"]);</script>
+  <script src="js/menu-admin.js" defer></script>
+</head>
+<body>
+  <header class="bar"><a class="brand" href="command.html"><span class="mark">T</span> tasteflow<span class="dot">.</span> <small>Menu Manager</small></a><nav></nav></header>
+  <main class="admin">
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Search dishes…" aria-label="Search dishes">
+      <select id="cat-filter" aria-label="Filter by category"><option value="">All categories</option></select>
+      <label class="tog"><input type="checkbox" id="show-archived"> Show removed</label>
+      <span id="count" class="muted"></span>
+      <button id="add" class="btn" type="button">+ Add new dish</button>
+    </div>
+    <p id="flash" class="flash" role="status" hidden></p>
+
+    <section id="editor" class="card editor" hidden aria-labelledby="ed-title">
+      <h2 id="ed-title">Add a new dish</h2>
+      <form id="form" autocomplete="off" novalidate>
+        <div class="cols">
+          <div class="fields">
+            <label>Name *<input id="f-name" maxlength="80" required></label>
+            <div class="row2">
+              <label>Price (₹) *<input id="f-price" type="number" min="1" max="100000" required></label>
+              <label>Category *<input id="f-category" list="cats" maxlength="40" required><datalist id="cats"></datalist></label>
+            </div>
+            <label>Description<textarea id="f-desc" maxlength="300" rows="3" placeholder="What makes it special?"></textarea></label>
+            <label>Ingredients <small>(comma separated)</small><input id="f-ing" placeholder="paneer, tomato, cream"></label>
+            <fieldset><legend>Dietary tags</legend>
+              <label class="chk"><input type="checkbox" name="tag" value="vegetarian"> Vegetarian</label>
+              <label class="chk"><input type="checkbox" name="tag" value="vegan"> Vegan</label>
+              <label class="chk"><input type="checkbox" name="tag" value="non-vegetarian"> Non-vegetarian</label>
+              <label class="chk"><input type="checkbox" name="tag" value="gluten-free"> Gluten-free</label>
+              <label class="chk"><input type="checkbox" name="tag" value="dairy-free"> Dairy-free</label>
+            </fieldset>
+            <div class="row2">
+              <label>Spice level<select id="f-spice"><option>Mild</option><option>Medium</option><option>Hot</option><option>Extra Hot</option></select></label>
+              <label>Prep time (min) <small>optional</small><input id="f-prep" type="number" min="1" max="120"></label>
+            </div>
+            <div class="row2">
+              <label>Stock <small>optional, blank = not tracked</small><input id="f-stock" type="number" min="0"></label>
+              <label>Cost price (₹) <small>optional, for margins</small><input id="f-cost" type="number" min="0"></label>
+            </div>
+            <label>Image URL <small>(https://… or leave blank for a placeholder)</small><input id="f-image" placeholder="https://…"></label>
+            <label class="chk"><input type="checkbox" id="f-avail" checked> Available to order now</label>
+          </div>
+          <aside class="preview"><h3>Guest preview</h3><div id="preview" class="pv"></div></aside>
+        </div>
+        <p id="form-err" class="err" role="alert"></p>
+        <div class="actions"><button class="btn" id="save" type="submit">Save dish</button><button class="btn ghost" id="cancel" type="button">Cancel</button></div>
+      </form>
+    </section>
+
+    <section class="card"><div id="list" class="list" aria-live="polite"></div></section>
+  </main>
+</body>
+</html>

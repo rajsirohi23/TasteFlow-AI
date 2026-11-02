@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173f35">
+  <title>TasteFlow | Owner Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/session.js"></script>
+  <script>TasteFlowSession.guard(["owner"]);</script>
+  <script src="js/owner.js" defer></script>
+
+  <style>
+    .owner-dashboard {
+      max-width: 1200px;
+      margin: auto;
+      padding: 42px 24px 64px;
+    }
+
+    .owner-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .owner-header h1 {
+      margin: 8px 0;
+    }
+
+    .owner-back {
+      color: #173f35;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .owner-filters {
+      display: flex;
+      align-items: end;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+      border: 1px solid #e1e8e3;
+      border-radius: 14px;
+      background: white;
+    }
+
+    .owner-filters label {
+      display: grid;
+      gap: 6px;
+      font-size: 14px;
+      color: #52635a;
+    }
+
+    .owner-filters input {
+      min-height: 42px;
+      padding: 8px 10px;
+      border: 1px solid #d5ddd8;
+      border-radius: 8px;
+      font: inherit;
+    }
+
+    .owner-message {
+      min-height: 24px;
+      margin: 18px 0;
+      color: #52635a;
+    }
+
+    .owner-section {
+      margin-top: 38px;
+    }
+
+    .owner-section > h2 {
+      margin-bottom: 8px;
+    }
+
+    .owner-section > p {
+      color: #52635a;
+      margin-top: 0;
+    }
+
+    .owner-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+    }
+
+    .owner-card {
+      min-width: 0;
+      padding: 22px;
+      border: 1px solid #e1e8e3;
+      border-radius: 15px;
+      background: white;
+      box-shadow: 0 3px 12px rgb(23 63 53 / 4%);
+    }
+
+    .owner-card h3,
+    .owner-card .card-label {
+      margin: 0 0 12px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #52635a;
+    }
+
+    .owner-value {
+      color: #173f35;
+      font-size: 29px;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .owner-muted {
+      margin: 7px 0 0;
+      font-size: 13px;
+      color: #52635a;
+    }
+
+    .owner-panel {
+      margin-top: 18px;
+      padding: 22px;
+      border: 1px solid #e1e8e3;
+      border-radius: 15px;
+      background: white;
+    }
+
+    .chart-container {
+      position: relative;
+      width: 100%;
+      height: 320px;
+    }
+
+    .owner-bars {
+      margin-top: 20px;
+    }
+
+    .owner-bar-row {
+      margin-bottom: 22px;
+    }
+
+    .owner-bar-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .owner-bar-track {
+      height: 12px;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #e1e8e3;
+    }
+
+    .owner-bar-fill {
+      height: 100%;
+      border-radius: 8px;
+      background: #28765b;
+    }
+
+    .owner-table-wrap {
+      overflow-x: auto;
+    }
+
+    .owner-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .owner-table th,
+    .owner-table td {
+      padding: 13px 10px;
+      border-bottom: 1px solid #e1e8e3;
+    }
+
+    .owner-table th {
+      color: #52635a;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .owner-table td {
+      overflow-wrap: anywhere;
+    }
+
+    .owner-empty {
+      color: #52635a;
+      padding: 12px 0;
+    }
+
+    .owner-error {
+      color: #a12626;
+    }
+
+    .owner-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .owner-dashboard {
+        padding: 28px 16px 48px;
+      }
+
+      .owner-value {
+        font-size: 25px;
+      }
+
+      .chart-container {
+        height: 270px;
+      }
+
+      .owner-filters {
+        align-items: stretch;
+      }
+
+      .owner-filters label,
+      .owner-filters input {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="TasteFlow home">
+      <span class="brand-icon">T</span>
+      <span class="brand-name">
+        tasteflow.
+        <small>BISTRO &amp; KITCHEN</small>
+      </span>
+    </a>
+
+    <a class="owner-back" href="index.html">← Customer menu</a>
+  </header>
+
+  <main class="owner-dashboard">
+    <div class="owner-header">
+      <div>
+        <span class="eyebrow">RESTAURANT MANAGEMENT</span>
+        <h1>Owner dashboard</h1>
+        <p>Understand sales, orders, and restaurant performance.</p>
+      </div>
+    </div>
+
+    <form class="owner-filters" id="sales-filter">
+      <label>
+        Start date
+        <input type="date" id="start-date" name="start_date">
+      </label>
+
+      <label>
+        End date
+        <input type="date" id="end-date" name="end_date">
+      </label>
+
+      <div class="owner-actions">
+        <button class="button button-primary" type="submit">
+          Apply filters
+        </button>
+        <button class="button button-secondary" type="button" id="clear-filters">
+          Clear filters
+        </button>
+      </div>
+    </form>
+
+    <p class="owner-message" id="dashboard-message" role="status" aria-live="polite">
+      Loading restaurant analytics...
+    </p>
+
+    <section class="owner-section" aria-labelledby="sales-heading">
+      <h2 id="sales-heading">Sales overview</h2>
+      <p>Key performance indicators for the selected period.</p>
+
+      <div class="owner-cards">
+        <article class="owner-card">
+          <h3>Total revenue</h3>
+          <div class="owner-value" id="total-revenue">—</div>
+        </article>
+
+        <article class="owner-card">
+          <h3>Total orders</h3>
+          <div class="owner-value" id="total-orders">—</div>
+        </article>
+
+        <article class="owner-card">
+          <h3>Average order value</h3>
+          <div class="owner-value" id="average-order-value">—</div>
+        </article>
+
+        <article class="owner-card">
+          <h3>Days with sales</h3>
+          <div class="owner-value" id="sales-days">—</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="owner-section" aria-labelledby="status-heading">
+      <h2 id="status-heading">Order status overview</h2>
+      <p>Track orders across the restaurant workflow.</p>
+
+      <div class="owner-cards">
+        <article class="owner-card">
+          <h3>Pending</h3>
+          <div class="owner-value" id="status-pending">—</div>
+          <p class="owner-muted" id="percent-pending">—</p>
+        </article>
+
+        <article class="owner-card">
+          <h3>Preparing</h3>
+          <div class="owner-value" id="status-preparing">—</div>
+          <p class="owner-muted" id="percent-preparing">—</p>
+        </article>
+
+        <article class="owner-card">
+          <h3>Ready</h3>
+          <div class="owner-value" id="status-ready">—</div>
+          <p class="owner-muted" id="percent-ready">—</p>
+        </article>
+
+        <article class="owner-card">
+          <h3>Completed</h3>
+          <div class="owner-value" id="status-completed">—</div>
+          <p class="owner-muted" id="percent-completed">—</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="owner-section" aria-labelledby="daily-heading">
+      <h2 id="daily-heading">Daily revenue trend</h2>
+      <p>Revenue by date within the selected period.</p>
+
+      <div class="owner-panel">
+        <p id="chart-message" class="owner-muted" role="status" aria-live="polite"></p>
+        <div class="chart-container">
+          <canvas id="daily-sales-chart"
+            role="img"
+            aria-label="Daily revenue bar chart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="owner-section" aria-labelledby="dishes-heading">
+      <h2 id="dishes-heading">Top revenue-generating dishes</h2>
+      <p>Dishes ranked by revenue, with quantities sold.</p>
+
+      <div class="owner-panel">
+        <p id="top-dishes-message" class="owner-muted" role="status" aria-live="polite"></p>
+        <div id="top-revenue-dishes" class="owner-bars"></div>
+      </div>
+    </section>
+
+    <section class="owner-section" aria-labelledby="revenue-status-heading">
+      <h2 id="revenue-status-heading">Revenue by order status</h2>
+      <p>Compare the value associated with each order stage.</p>
+
+      <div class="owner-panel">
+        <p id="revenue-status-message" class="owner-muted" role="status" aria-live="polite"></p>
+        <div id="revenue-status-chart" class="owner-bars"></div>
+      </div>
+    </section>
+
+    <section class="owner-section" aria-labelledby="busy-heading">
+      <h2 id="busy-heading">Restaurant busy periods</h2>
+      <p>Hours ranked by the number of non-cancelled orders.</p>
+
+      <div class="owner-panel">
+        <p id="busy-periods-message" class="owner-muted" role="status" aria-live="polite"></p>
+        <div id="busy-periods-list" class="owner-bars"></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Staff sign-in · TasteFlow</title>
+  <link rel="stylesheet" href="css/login.css" />
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/login.js" defer></script>
+</head>
+<body>
+  <main class="wrap">
+    <a class="brand" href="index.html"><span class="mark">T</span> tasteflow<span class="dot">.</span></a>
+    <section class="card">
+      <h1>Staff sign-in</h1>
+      <p class="sub">For restaurant staff only. Guests don’t need an account: <a href="index.html">go to the menu</a>.</p>
+      <p id="denied" class="notice" hidden>That page needs a different role. Please sign in with the right PIN.</p>
+      <div id="signed" hidden><p>You are signed in as <b id="who"></b>.</p><a id="continue" class="btn" href="#">Continue</a> <button id="signout" class="btn ghost" type="button">Sign out</button></div>
+      <form id="form" autocomplete="off">
+        <div class="roles" role="radiogroup" aria-label="Role">
+          <label><input type="radio" name="role" value="owner" checked> <span><b>Owner</b><small>Command Center, menu, analytics</small></span></label>
+          <label><input type="radio" name="role" value="kitchen"> <span><b>Kitchen staff</b><small>Kitchen board</small></span></label>
+        </div>
+        <label class="pin">PIN <input id="pin" type="password" autocomplete="current-password" required aria-describedby="err"></label>
+        <p id="err" class="err" role="alert"></p>
+        <button class="btn" id="go" type="submit">Sign in</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

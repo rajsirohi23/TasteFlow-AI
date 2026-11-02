@@ -1,0 +1,38 @@
+.track-wrap{max-width:860px;margin:0 auto;padding:22px 20px 48px;display:grid;gap:16px}
+.track-wrap h1{font-size:1.6rem;color:var(--green)}.track-wrap h2{font-size:1.05rem;color:var(--green);margin-bottom:10px}
+.finder{max-width:480px;margin:40px auto;text-align:center}
+.finder form{display:flex;gap:8px;margin-top:14px}.finder input{flex:1;padding:13px 14px;border:1px solid var(--line);border-radius:12px;font:600 1.1rem ui-monospace,Menlo,monospace;text-transform:uppercase;letter-spacing:.08em;text-align:center}
+.finder button,.panel button#rate-btn{background:var(--green);color:#fff;border:0;border-radius:12px;padding:12px 22px;font-weight:600}
+.err{color:var(--danger);min-height:1.3em;margin:10px 0 0}.ok{color:var(--ok);margin:10px 0 0;min-height:1.3em}
+.hero{display:grid;grid-template-columns:230px 1fr;gap:26px;align-items:center;padding:26px;transition:background .4s}
+.hero[data-state=delayed]{background:#fff6ef;border-color:var(--orange)}
+.hero[data-state=ready]{background:#eaf5ee;border-color:#9cc9aa}
+.hero[data-state=cancelled]{background:#f6f3ee}
+.ring-wrap{position:relative;width:210px;height:210px;margin:0 auto}
+.ring{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:9}
+.ring-bg{stroke:#ece8de}.ring-fg{stroke:var(--green);stroke-linecap:round;stroke-dasharray:339.292;stroke-dashoffset:339.292;transition:stroke-dashoffset 1s linear,stroke .4s}
+.hero[data-state=delayed] .ring-fg{stroke:var(--orange)}.hero[data-state=ready] .ring-fg{stroke:var(--ok)}
+.ring-text{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.clock{font:700 2.6rem Georgia,serif;color:var(--green);font-variant-numeric:tabular-nums}
+.hero[data-state=delayed] .clock{color:var(--orange)}.clock-label{font-size:.78rem;color:var(--muted);max-width:110px;margin:0 auto}
+.hello{margin:0 0 4px;color:var(--muted)}.message{font-size:1.05rem;margin:8px 0}.fine{color:var(--muted);font-size:.82rem;margin:6px 0 0}.center{text-align:center}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.steps li{position:relative;text-align:center;padding-top:34px;font-size:.88rem;color:var(--muted)}
+.steps li::before{content:"";position:absolute;top:8px;left:50%;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:#ece8de;border:3px solid #ece8de;z-index:1;transition:all .3s}
+.steps li::after{content:"";position:absolute;top:16px;left:calc(-50% + 9px);right:calc(50% + 9px);height:3px;background:#ece8de}
+.steps li:first-child::after{display:none}
+.steps li.done{color:var(--text)}.steps li.done::before,.steps li.done::after{background:var(--green);border-color:var(--green)}
+.steps li.current::before{background:#fff;border-color:var(--orange);box-shadow:0 0 0 5px rgba(231,122,67,.2);animation:pulse 1.6s ease-in-out infinite}
+.steps li.current{font-weight:700;color:var(--green)}.steps small{display:block;font-weight:400;color:var(--muted);margin-top:2px}
+@keyframes pulse{50%{box-shadow:0 0 0 9px rgba(231,122,67,.05)}}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.items{list-style:none;margin:0;padding:0}.items li{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--line)}
+.total{display:flex;justify-content:space-between;padding-top:10px;font-size:1.05rem}.meta{color:var(--muted);font-size:.88rem;margin:10px 0 0}
+.danger{margin-top:14px;background:#fff;border:1px solid var(--danger);color:var(--danger);border-radius:10px;padding:9px 16px;font-weight:600}
+.danger:hover{background:#fbeceb}
+.stars{display:flex;gap:6px;margin-bottom:10px}.stars button{font-size:2rem;background:none;border:0;color:#d9d3c5;padding:0 2px;line-height:1;transition:transform .15s,color .15s}
+.stars button:hover{transform:scale(1.15)}.stars button.on{color:#f2a900}
+#comment{width:100%;min-height:72px;border:1px solid var(--line);border-radius:12px;padding:10px;font:inherit;margin-bottom:10px;resize:vertical}
+#rate-btn:disabled{opacity:.5}
+@media (max-width:720px){.hero{grid-template-columns:1fr;text-align:center}.two{grid-template-columns:1fr}.steps li{font-size:.76rem}}

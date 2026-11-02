@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Command Center · TasteFlow</title>
+  <link rel="stylesheet" href="css/command.css" />
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/session.js"></script>
+  <script>TasteFlowSession.guard(["owner"]);</script>
+  <script src="js/command.js" defer></script>
+</head>
+<body>
+  <header class="bar">
+    <a class="brand" href="index.html"><span class="mark">T</span> tasteflow<span class="dot">.</span> <small>Command Center</small></a>
+    <nav><a href="owner.html">Classic dashboard</a><a href="agents.html">Agent Console</a><a href="voice.html">Voice Studio</a><a href="kitchen.html">Kitchen</a></nav>
+    <div class="live"><span class="pulse-dot"></span><span id="clock">--:--:--</span></div>
+    <button id="brief-btn" class="btn">☀ Morning brief</button>
+  </header>
+
+  <section id="brief" class="brief" hidden>
+    <div id="brief-lines"></div>
+    <button id="brief-speak" class="btn ghost">🔊 Read aloud</button> <button id="brief-close" class="btn ghost">Close</button>
+  </section>
+
+  <main class="grid">
+    <section class="kpis" id="kpis"></section>
+
+    <article class="card c5"><h2>Revenue · last 14 days <small id="series-note"></small></h2><div id="series" class="chart"></div></article>
+    <article class="card c4"><h2>Smart alerts</h2><div id="alerts"></div></article>
+    <article class="card c3"><h2>Live activity</h2><ul id="activity" class="feed"></ul></article>
+
+    <article class="card c5"><h2>Floor plan <small id="floor-note"></small></h2><div id="floor" class="floor"></div>
+      <div class="legend"><i class="s-free"></i>free <i class="s-ordered"></i>ordered <i class="s-cooking"></i>cooking <i class="s-serve"></i>serve now <i class="s-dining"></i>dining</div></article>
+    <article class="card c7"><h2>When are guests hungry? <small>orders by weekday × hour, last 28 days</small></h2><div id="heat" class="heat"></div></article>
+
+    <article class="card c7"><h2>Next 24 hours <small id="fc-note"></small></h2><div id="forecast" class="chart"></div><p id="fc-basis" class="fine"></p></article>
+    <article class="card c5"><h2>Menu engineering <small id="me-note"></small></h2><div id="menu-eng" class="chart"></div><div id="me-list" class="fine"></div></article>
+
+    <article class="card c5"><h2>Bought together <small>real order baskets</small></h2><div id="combos"></div></article>
+    <article class="card c7 sim"><h2>⚡ Rush Simulator <small>what if a crowd arrives?</small></h2>
+      <div class="sliders">
+        <label>Orders <b id="v-orders">40</b><input id="s-orders" type="range" min="5" max="150" value="40"></label>
+        <label>Within (min) <b id="v-minutes">10</b><input id="s-minutes" type="range" min="1" max="60" value="10"></label>
+        <label>Cooking stations <b id="v-stations">3</b><input id="s-stations" type="range" min="1" max="10" value="3"></label>
+      </div>
+      <div id="sim-verdict" class="verdict">Move a slider to simulate…</div>
+      <div id="sim-stats" class="stats"></div><div id="sim-chart" class="chart"></div><p id="sim-method" class="fine"></p></article>
+
+    <article class="card c12 copilot"><h2>🤖 Business Copilot <small>ask anything about your restaurant, in plain words</small></h2>
+      <div id="chat" class="chat"></div>
+      <div id="chips" class="chips"></div>
+      <form id="ask" class="ask" autocomplete="off"><input id="q" placeholder="e.g. revenue this week vs last week" aria-label="Question"><button class="btn" type="submit">Ask</button><button class="btn ghost" id="mic" type="button" title="Speak your question">🎤</button>
+      <label class="tog"><input type="checkbox" id="speak"> speak answers</label></form></article>
+  </main>
+</body>
+</html>

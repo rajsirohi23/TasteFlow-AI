@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173f35">
+  <title>TasteFlow | Kitchen Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .kitchen-page {
+      width: min(1200px, 92%);
+      margin: 44px auto;
+    }
+
+    .kitchen-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .kitchen-heading h1,
+    .kitchen-section-title {
+      font-family: "Playfair Display", serif;
+    }
+
+    .kitchen-heading h1 {
+      margin: 8px 0;
+    }
+
+    .kitchen-heading p,
+    .kitchen-status {
+      color: #617169;
+    }
+
+    .kitchen-button,
+    .kitchen-order-actions button {
+      padding: 11px 16px;
+      border: 1px solid #d9e1dc;
+      border-radius: 9px;
+      background: #fff;
+      color: #173f35;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .kitchen-button:disabled,
+    .kitchen-order-actions button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .kitchen-status {
+      margin: 18px 0;
+      overflow-wrap: anywhere;
+    }
+
+    .kitchen-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin: 26px 0 36px;
+    }
+
+    .kitchen-stat {
+      padding: 20px;
+      background: #fff;
+      border: 1px solid #e0e7e2;
+      border-radius: 14px;
+    }
+
+    .kitchen-stat span {
+      color: #617169;
+      font-size: 14px;
+    }
+
+    .kitchen-stat strong {
+      display: block;
+      margin-top: 10px;
+      color: #173f35;
+      font-size: 30px;
+    }
+
+    .kitchen-section-title {
+      margin-bottom: 16px;
+    }
+
+    .kitchen-orders {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .kitchen-order-card {
+      min-width: 0;
+      padding: 22px;
+      background: #fff;
+      border: 1px solid #e0e7e2;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(23, 63, 53, 0.04);
+    }
+
+    .kitchen-order-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .kitchen-order-top h3 {
+      margin: 0 0 6px;
+    }
+
+    .kitchen-order-meta {
+      color: #617169;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .kitchen-badge {
+      padding: 6px 10px;
+      border-radius: 20px;
+      background: #edf2ef;
+      color: #173f35;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: capitalize;
+      white-space: nowrap;
+    }
+
+    .status-pending {
+      background: #fff0d6;
+      color: #815300;
+    }
+
+    .status-preparing {
+      background: #dcecff;
+      color: #174f8a;
+    }
+
+    .status-ready {
+      background: #dff5e7;
+      color: #17663b;
+    }
+
+    .status-completed {
+      background: #edf2ef;
+      color: #45564c;
+    }
+
+    .kitchen-item-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .kitchen-item-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid #edf0ed;
+    }
+
+    .kitchen-order-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .kitchen-total {
+      color: #173f35;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .kitchen-order-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .kitchen-order-actions .primary-action {
+      background: #173f35;
+      color: #fff;
+      border-color: #173f35;
+    }
+
+    .kitchen-message {
+      grid-column: 1 / -1;
+      padding: 28px;
+      background: #fff;
+      border: 1px solid #e0e7e2;
+      border-radius: 14px;
+      color: #617169;
+    }
+
+    @media (max-width: 760px) {
+      .kitchen-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .kitchen-orders {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="TasteFlow home">
+      <span class="brand-icon">T</span>
+      <span class="brand-name">
+        tasteflow<span>.</span>
+        <small>BISTRO &amp; KITCHEN</small>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Dashboard navigation">
+      <a class="nav-link" href="index.html">Customer menu</a>
+      <a class="nav-link" href="owner.html">Owner dashboard</a>
+    </nav>
+  </header>
+
+  <main class="kitchen-page">
+    <div class="kitchen-heading">
+      <div>
+        <span class="eyebrow">RESTAURANT OPERATIONS</span>
+        <h1>Kitchen dashboard</h1>
+        <p>Manage incoming orders and track kitchen progress.</p>
+      </div>
+
+      <button class="kitchen-button" id="refresh-orders" type="button">
+        Refresh orders
+      </button>
+    </div>
+
+    <p class="kitchen-status" id="kitchen-status" role="status" aria-live="polite">
+      Loading kitchen orders...
+    </p>
+
+    <section class="kitchen-stats" aria-label="Order summary">
+      <div class="kitchen-stat">
+        <span>Pending</span>
+        <strong id="pending-count">0</strong>
+      </div>
+      <div class="kitchen-stat">
+        <span>Preparing</span>
+        <strong id="preparing-count">0</strong>
+      </div>
+      <div class="kitchen-stat">
+        <span>Ready</span>
+        <strong id="ready-count">0</strong>
+      </div>
+      <div class="kitchen-stat">
+        <span>Completed</span>
+        <strong id="completed-count">0</strong>
+      </div>
+    </section>
+
+    <h2 class="kitchen-section-title">Incoming and active orders</h2>
+
+    <section
+      class="kitchen-orders"
+      id="kitchen-orders"
+      aria-label="Kitchen orders"
+    >
+      <div class="kitchen-message">Loading orders...</div>
+    </section>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/session.js"></script>
+  <script>TasteFlowSession.guard(["kitchen","owner"]);</script>
+  <script src="js/kitchen-classic.js" defer></script>
+</body>
+</html>

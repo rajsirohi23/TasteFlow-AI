@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TasteFlow · AI Assistant</title>
+  <link rel="stylesheet" href="css/console.css" />
+  <style>.customer-mode .orchestra,.customer-mode .staff,.customer-mode #staff-btn{display:none!important}.customer-mode .layout{grid-template-columns:minmax(320px,1.6fr) minmax(260px,.9fr);max-width:1100px}@media(max-width:900px){.customer-mode .layout{grid-template-columns:1fr}}</style>
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/console.js" defer></script>
+</head>
+<body class="customer-mode">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">T</span><span>tasteflow<span class="dot">.</span> <small>AI Assistant</small></span></a>
+    <nav aria-label="Pages">
+      <a href="index.html">Menu</a>
+      <a href="assistant.html">AI Assistant</a>
+      <a href="voice.html">Order by Voice</a>
+      <a href="track.html">Track Order</a>
+    </nav>
+    <a class="ghost" href="voice.html" style="text-decoration:none">🎤 Talk instead</a><button id="staff-btn" class="ghost" type="button" hidden>Staff</button>
+  </header>
+
+  <main class="layout">
+    <!-- Conversation -->
+    <section class="panel chat" aria-label="Conversation with the restaurant assistant">
+      <div class="panel-head">
+        <div><h2>Concierge</h2><p class="sub">Ask in plain words. English and Hinglish work.</p></div>
+        <button id="reset-btn" class="ghost small" type="button">New conversation</button>
+      </div>
+      <div id="messages" class="messages" role="log" aria-live="polite"></div>
+      <div id="quick-replies" class="quick" aria-label="Quick replies"></div>
+      <div id="chips" class="chips" aria-label="Try asking"></div>
+      <form id="chat-form" class="composer" autocomplete="off">
+        <input id="chat-input" type="text" maxlength="1000" placeholder="e.g. vegetarian high-protein under ₹300, not too spicy" aria-label="Your message" />
+        <button type="submit" id="send-btn">Send</button>
+      </form>
+    </section>
+
+    <!-- Orchestration -->
+    <section class="panel orchestra" aria-label="Agent orchestration">
+      <div class="panel-head"><div><h2>Agent orchestration</h2><p class="sub">Who handled your last message, and how.</p></div></div>
+      <div id="agent-lanes" class="lanes"></div>
+      <div id="run-summary" class="run-summary" hidden></div>
+      <ol id="trace" class="trace" aria-label="Execution trace"></ol>
+      <p id="trace-empty" class="empty">Send a message to see the agents work. Every step shown here is a real recorded action.</p>
+      <p class="guarantee">Prices, totals, stock and order saving are computed by backend code, never by the AI model.</p>
+    </section>
+
+    <!-- Shared state -->
+    <aside class="panel state" aria-label="Shared session state">
+      <div class="panel-head"><div><h2>Session memory</h2><p class="sub">What every agent currently knows.</p></div></div>
+      <h3>Preferences</h3>
+      <div id="prefs" class="pills"><span class="muted">None yet</span></div>
+      <h3>Cart</h3>
+      <div id="cart" class="cart"><span class="muted">Empty</span></div>
+      <h3>Kitchen</h3>
+      <div id="kitchen" class="kitchen"><span class="muted">Ask “how busy is the kitchen?”</span></div>
+      <div id="staff-panel" class="staff" hidden>
+        <h3>Insights <span class="tag">owner</span></h3>
+        <div id="insights"></div>
+        <h3>Kitchen performance (measured)</h3>
+        <div id="ops"></div>
+        <h3>Guest feedback</h3>
+        <div id="fb"></div>
+        <h3>Stock</h3>
+        <div id="inv"></div>
+        <h3>Guest requests we couldn’t serve</h3>
+        <div id="unmet"></div>
+        <h3>Recent agent runs</h3>
+        <div id="runs"></div>
+      </div>
+    </aside>
+  </main>
+</body>
+</html>

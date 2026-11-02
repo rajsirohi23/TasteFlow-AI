@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Track your order · TasteFlow</title>
+  <link rel="stylesheet" href="css/console.css" />
+  <link rel="stylesheet" href="css/track.css" />
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/track.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">T</span><span>tasteflow<span class="dot">.</span> <small>Order tracking</small></span></a>
+    <nav aria-label="Pages">
+      <a href="index.html">Menu</a>
+      <a href="assistant.html">AI Assistant</a>
+      <a href="voice.html">Order by Voice</a>
+      <a href="track.html">Track Order</a>
+    </nav>
+  </header>
+
+  <main class="track-wrap">
+    <!-- Step 1: find an order -->
+    <section id="finder" class="panel finder" hidden>
+      <h1>Where is my order?</h1>
+      <p class="sub">Enter the tracking code you received when you placed your order.</p>
+      <form id="finder-form" autocomplete="off">
+        <input id="code-input" maxlength="12" placeholder="e.g. 2EA878D6" aria-label="Tracking code" />
+        <button type="submit">Track</button>
+      </form>
+      <p id="finder-error" class="err" role="alert"></p>
+    </section>
+
+    <!-- Step 2: live tracker -->
+    <section id="tracker" hidden>
+      <div class="panel hero" id="hero" data-state="on_time">
+        <div class="ring-wrap">
+          <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="ring-bg" cx="60" cy="60" r="54"></circle>
+            <circle class="ring-fg" id="ring-fg" cx="60" cy="60" r="54"></circle>
+          </svg>
+          <div class="ring-text">
+            <div id="clock" class="clock" aria-live="off">--:--</div>
+            <div id="clock-label" class="clock-label">estimated time left</div>
+          </div>
+        </div>
+        <div class="hero-text">
+          <p class="hello" id="hello"></p>
+          <h1 id="headline">Loading…</h1>
+          <p id="message" class="message" aria-live="polite"></p>
+          <p class="fine"><span id="est-note">Time shown is an estimate from the kitchen’s current workload.</span></p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Progress</h2>
+        <ol id="steps" class="steps"></ol>
+      </div>
+
+      <div class="two">
+        <div class="panel">
+          <h2>Your order</h2>
+          <ul id="items" class="items"></ul>
+          <div class="total"><span>Total</span><strong id="total"></strong></div>
+          <p id="meta" class="meta"></p>
+          <button id="cancel-btn" class="danger" type="button" hidden>Cancel this order</button>
+        </div>
+        <div class="panel" id="rate-panel" hidden>
+          <h2>How was it?</h2>
+          <div id="stars" class="stars" role="radiogroup" aria-label="Rating"></div>
+          <textarea id="comment" maxlength="500" placeholder="Anything we should know? (optional)" aria-label="Comment"></textarea>
+          <button id="rate-btn" type="button" disabled>Send feedback</button>
+          <p id="rate-msg" class="ok" aria-live="polite"></p>
+        </div>
+      </div>
+      <p class="fine center">Code <strong id="code-label"></strong> · updates every few seconds · <a id="another" href="track.html">Track a different order</a></p>
+    </section>
+  </main>
+</body>
+</html>

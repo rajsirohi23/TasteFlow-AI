@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voice Studio · TasteFlow</title>
+  <link rel="stylesheet" href="css/voice.css" />
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/voice-core.js"></script>
+  <script src="js/voice-studio.js" defer></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="index.html"><span class="mark">T</span> tasteflow<span class="dot">.</span> <small>Voice Studio</small></a>
+    <nav aria-label="Pages">
+      <a href="index.html">Menu</a>
+      <a href="assistant.html">AI Assistant</a>
+      <a href="voice.html">Order by Voice</a>
+      <a href="track.html">Track Order</a>
+    </nav>
+    <a class="chip" href="index.html">← Menu</a>
+  </header>
+  <div id="unsupported" class="warn" hidden>Your browser has no speech recognition (use Chrome or Edge on desktop/Android). You can still type below. Speech output may also be unavailable.</div>
+  <main class="stage">
+    <section class="center">
+      <div class="orb-wrap">
+        <canvas id="wave" width="460" height="460" aria-hidden="true"></canvas>
+        <button id="orb" class="orb" data-state="idle" type="button" aria-label="Start or stop listening"><span id="orb-icon">🎤</span></button>
+      </div>
+      <div id="status" class="status" aria-live="polite">Tap the orb and start talking</div>
+      <div id="interim" class="interim" aria-live="off"></div>
+      <div class="controls">
+        <label>Language <select id="lang"><option value="en-IN">English (India)</option><option value="hi-IN">हिन्दी (Hindi / Hinglish)</option><option value="en-US">English (US)</option></select></label>
+        <label><input type="checkbox" id="hands" checked> Hands-free (keep listening)</label>
+        <label><input type="checkbox" id="wake"> Wake word “Hey TasteFlow”</label>
+        <label><input type="checkbox" id="talk" checked> Speak replies</label>
+        <label><input type="checkbox" id="barge"> Say “stop” to interrupt</label>
+        <label>Speed <input type="range" id="rate" min="0.7" max="1.4" step="0.1" value="1"></label>
+      </div>
+      <div class="btnrow"><button id="stop-talk" class="chip" type="button">⏹ Stop talking</button><button id="diag-btn" class="chip" type="button">🩺 Check my mic &amp; voice</button></div>
+      <section id="diag" class="diag" hidden aria-live="polite"></section>
+      <form id="typed" class="typed" autocomplete="off"><input id="typed-in" placeholder="…or type here" aria-label="Type a message"><button type="submit">Send</button></form>
+      <div class="try" id="try"></div>
+    </section>
+    <aside class="side">
+      <h3>Conversation</h3><div id="log" class="log" role="log" aria-live="polite"></div>
+      <h3>Cart</h3><div id="cart" class="cart"><span class="muted">Empty</span></div>
+      <h3>Agents on this turn</h3><div id="agents" class="agents"><span class="muted">–</span></div>
+    </aside>
+  </main>
+</body>
+</html>
